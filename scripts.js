@@ -36,7 +36,6 @@ function displayBooks() {
         bookCard.classList.add('book-card')
 
         const deleteBtn = document.createElement('button')
-        deleteBtn.classList.add('deleteBtn')
         deleteBtn.textContent = "DELETE"
         deleteBtn.addEventListener('click', () => {
             myLibrary = myLibrary.filter(current => book.title !== current.title)
