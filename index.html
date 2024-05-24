@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js" defer></script>
+    <title>Library</title>
+</head>
+<body>
+    <header>
+        <div class="profile">
+            <img src="./images/pfp.png" alt="profile picture icon">
+            <h3>Betty Lam</h3>
+        </div>
+        <div class="features">
+            <img src="./images/notification.png" alt="notification icon">
+            <img src="./images/message.png" alt="message icon">
+            <button class="new-book">NEW BOOK</button>
+        </div>
+    </header>
+
+    <main class="books-container">
+            
+    </main>
+
+    <dialog>
+        <button class="close-modal">X</button>
+        <form action="">
+            <div class="top">
+                <label for="title">Title
+                    <input type="text" id="title" name="title" required>
+                </label>
+
+                <label for="author">Author
+                    <input type="text" id="author" name="author" required>
+                </label>
+            </div>
+
+            <div class="bottom">
+                <label for="pages">Pages
+                    <input type="number" id="pages" name="pages" required>
+                </label>
+                <label for="read">Have you read it?
+                    <select name="read" id="read" required>
+                        <option value="select">Select</option>
+                        <option value=true>Yes</option>
+                        <option value=false>No</option>
+                    </select>
+                </label>
+            </div>
+
+        </form>
+        <button type="submit" class="submit">ADD BOOK</button>
+    </dialog>
+    
+</body>
+</html>
