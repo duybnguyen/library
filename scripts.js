@@ -1,7 +1,7 @@
 const dialog = document.querySelector('dialog')
 const booksContainer = document.querySelector('.books-container');
 
-const myLibrary = [
+let myLibrary = [
     {
         title: "Atomic Habits",
         author: "James Clear",
@@ -34,6 +34,16 @@ function displayBooks() {
     myLibrary.forEach(book => {
         const bookCard = document.createElement('div');
         bookCard.classList.add('book-card')
+
+        const deleteBtn = document.createElement('button')
+        deleteBtn.classList.add('deleteBtn')
+        deleteBtn.textContent = "DELETE"
+        deleteBtn.addEventListener('click', () => {
+            myLibrary = myLibrary.filter(current => book.title !== current.title)
+            booksContainer.textContent = ''
+            displayBooks()
+        })
+        bookCard.appendChild(deleteBtn)
         
         const title = document.createElement('h2');
         title.classList.add('title')
@@ -50,11 +60,25 @@ function displayBooks() {
         pages.textContent = `Pages: ${book.pages}`;
         bookCard.appendChild(pages);
         
+        const readContainer = document.createElement('div')
+        readContainer.classList.add("read-container")
+
+        const readToggle = document.createElement('button')
+        readToggle.classList.add('read-toggle')
+        readToggle.textContent = 'TOGGLE'
+        readToggle.addEventListener('click', () => {
+            book.read = !book.read;
+            read.textContent = book.read ? "Have read" : "Have not read";
+        })
+
         const read = document.createElement('p');
         read.classList.add('read')
         read.textContent = book.read ? "Have read" : "Have not read";
-        bookCard.appendChild(read);
-        
+
+        readContainer.appendChild(read)
+        readContainer.appendChild(readToggle)
+        bookCard.appendChild(readContainer);
+
         booksContainer.appendChild(bookCard);
     });
 }
@@ -69,6 +93,9 @@ function addBookToLibrary(title, author, pages, read) {
     })
 }
 
+const deleteBook = () => {
+
+}
 displayBooks()
 
 // query selectors
